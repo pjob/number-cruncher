@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Number Cruncher
+GenericName=Math Game
+Comment=Munch the numbers that fit the rule and dodge the Troggles
+Exec=number-cruncher
+Icon=number-cruncher
+Terminal=false
+Categories=Game;KidsGame;
+Keywords=math;numbers;multiples;factors;primes;kids;

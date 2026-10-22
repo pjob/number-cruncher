@@ -1,0 +1,12 @@
+Package: number-cruncher
+Version: @VERSION@
+Section: games
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.9), python3-pygame (>= 2.1), fonts-dejavu-core
+Installed-Size: @SIZE@
+Maintainer: pjob <pobrie01@gmail.com>
+Description: math game: munch the numbers that fit the rule
+ A Number Munchers style game. Move your Muncher around a grid of numbers
+ and eat the ones that match the rule (multiples, factors, primes,
+ equality and inequality) while dodging the Troggles.

@@ -1,0 +1,4 @@
+#!/bin/sh
+# Launcher installed to /usr/games by the Debian package.
+export PYTHONPATH="/usr/share/number-cruncher${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m number_cruncher "$@"
