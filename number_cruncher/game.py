@@ -516,7 +516,7 @@ class PlayScene(Scene):
             draw_muncher(surf, (lx + i * 32 + 14, r.y + 58), 28, "chomp", color)
         sx = lx - 40
         draw_text(surf, "SCORE", 13, MUTED, (sx, r.y + 16), "topright")
-        draw_text(surf, f"{self.s.score:06,}", 26, TEXT, (sx, r.y + 40), "topright")
+        draw_text(surf, f"{self.s.score:,}", 26, TEXT, (sx, r.y + 40), "topright")
 
     def draw_grid(self, surf):
         warn_cells = {(w[0], w[1]) for w in self.warnings}
@@ -660,7 +660,7 @@ class LevelClearScene(Scene):
             y += 40
         pygame.draw.line(surf, BORDER, (box.x + 24, y + 4), (box.right - 24, y + 4), 2)
         draw_text(surf, "TOTAL", 24, YELLOW, (box.x + 24, y + 22))
-        draw_text(surf, f"{self.s.score:06,}", 24, YELLOW, (box.right - 24, y + 22), "topright")
+        draw_text(surf, f"{self.s.score:,}", 24, YELLOW, (box.right - 24, y + 22), "topright")
         if self.bonus_life:
             draw_text(surf, "BONUS LIFE!", 18, GREEN, (box.x + 24, y + 70))
 
@@ -695,7 +695,7 @@ def draw_score_table(surf, box, scores, highlight=None, compact=False):
         if not compact:
             draw_text(surf, f"{s['mode']}  L{s['level']}", 18, MUTED if i != highlight else GREEN,
                       (box.x + 190, y + 2), bold=False)
-        draw_text(surf, f"{s['score']:06,}", 20, color, (box.right - 24, y), "topright", bold=False)
+        draw_text(surf, f"{s['score']:,}", 20, color, (box.right - 24, y), "topright", bold=False)
         y += 38 if not compact else 44
 
 
@@ -738,7 +738,7 @@ class GameOverScene(Scene):
         else:
             draw_muncher(surf, (W // 2, 130), 120, "sad")
             draw_text(surf, "GAME OVER", 52, ORANGE, (W // 2, 240), "center")
-        draw_text(surf, f"Final score  {self.s.score:06,}", 26, TEXT, (W // 2, 310), "center")
+        draw_text(surf, f"Final score  {self.s.score:,}", 26, TEXT, (W // 2, 310), "center")
         draw_text(surf, f"{self.s.mode} · {rules.GRADES[self.s.grade]} · reached level {self.s.level}",
                   18, MUTED, (W // 2, 350), "center", bold=False)
 

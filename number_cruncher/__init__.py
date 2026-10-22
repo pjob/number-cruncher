@@ -1,3 +1,3 @@
 """Number Cruncher: munch the numbers that fit the rule, dodge the Troggles."""
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
