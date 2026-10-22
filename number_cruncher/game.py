@@ -550,9 +550,13 @@ class PlayScene(Scene):
                     if self.invulnerable > 0 and blink:
                         mood = "chomp"
                     if item:
-                        draw_muncher(surf, (rect.centerx, rect.y + 38), 58, mood)
-                        size = fit_size(item.label, rect.w - 12, [20, 18, 16, 14])
-                        draw_text(surf, item.label, size, TEXT, (rect.centerx, rect.bottom - 6), "midbottom")
+                        # Faded Muncher behind the number so the number stays readable.
+                        ghost = pygame.Surface(rect.size, pygame.SRCALPHA)
+                        draw_muncher(ghost, (rect.w / 2, rect.h / 2), 84, mood)
+                        ghost.set_alpha(80)
+                        surf.blit(ghost, rect)
+                        draw_text(surf, item.label, label_size, BG, (rect.centerx + 2, rect.centery + 2), "center")
+                        draw_text(surf, item.label, label_size, TEXT, rect.center, "center")
                     else:
                         draw_muncher(surf, rect.center, 72, mood)
                 elif here in troggle_cells:
