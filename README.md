@@ -6,6 +6,8 @@ Move your Muncher around a 6×5 grid and eat every number that fits the rule
 at the top of the screen. Eat a wrong one, or let a Troggle catch you, and you
 lose a life. Clear all the matching numbers to finish the level.
 
+![Number Cruncher gameplay: a 6×5 grid of numbers under the rule "Multiples of 8"](docs/screenshot.png)
+
 ## Game types
 
 | Game       | Example rule      | Munch these         |
@@ -40,11 +42,21 @@ High scores and settings are saved in `~/.local/share/number-cruncher/save.json`
 
 ## Running from source
 
+You need Python 3.9 or newer and pygame 2.1 or newer.
+
 ```sh
+git clone https://github.com/pjob/number-cruncher.git
+cd number-cruncher
 sudo apt install python3-pygame fonts-dejavu-core
 make run      # play
 make test     # unit tests for the puzzle rules
 ```
+
+On other systems, install pygame with `pip install pygame` and run
+`python3 -m number_cruncher`. The game uses DejaVu Sans Mono when it can find
+it and falls back to a system monospace font otherwise.
+
+Pass `--fullscreen` to start in full screen.
 
 ## Debian package
 
@@ -56,3 +68,20 @@ make uninstall
 
 Once installed, start it from the app menu (Games → Number Cruncher) or run
 `number-cruncher` in a terminal.
+
+## Project layout
+
+```
+number_cruncher/
+  rules.py     puzzle types and board generation (no pygame needed)
+  game.py      screens and the main loop
+  sprites.py   the Muncher and Troggle drawings
+  sound.py     generated sound effects
+  storage.py   high scores and settings
+tests/         unit tests for rules.py
+packaging/     launcher, .desktop entry, icon and Debian control file
+```
+
+## License
+
+MIT. See [LICENSE](LICENSE).

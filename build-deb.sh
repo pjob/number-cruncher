@@ -21,6 +21,7 @@ install -m 755 packaging/number-cruncher "$PKG/usr/games/"
 install -m 644 packaging/number-cruncher.desktop "$PKG/usr/share/applications/"
 install -m 644 packaging/number-cruncher.svg "$PKG/usr/share/icons/hicolor/scalable/apps/"
 install -m 644 README.md "$PKG/usr/share/doc/number-cruncher/"
+install -m 644 LICENSE "$PKG/usr/share/doc/number-cruncher/copyright"
 
 SIZE=$(du -sk --exclude=DEBIAN "$PKG" | cut -f1)
 sed -e "s/@VERSION@/$VERSION/" -e "s/@SIZE@/$SIZE/" packaging/control.in > "$PKG/DEBIAN/control"
